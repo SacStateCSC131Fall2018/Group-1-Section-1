@@ -2,15 +2,19 @@ package pirexGUI;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-public class PirexView extends JFrame
+public class PirexView extends JFrame implements ActionListener
 {
     /**
      * 
@@ -39,6 +43,7 @@ public class PirexView extends JFrame
 	JTabbedPane tabbedPane;
 	JMenuBar menuBar;
 	JMenu fileMenu, helpMenu, optionsMenu;
+	JMenuItem item;
 
         contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
@@ -52,6 +57,13 @@ public class PirexView extends JFrame
         menuBar = new JMenuBar();
         
         fileMenu = new JMenu("File");
+	item = new JMenuItem("Open");
+	fileMenu.add(item);
+	item = new JMenuItem("Exit");
+	item.addActionListener(this);
+	fileMenu.add(item);
+
+	
         helpMenu = new JMenu("Help");
         optionsMenu = new JMenu("Options");
         
@@ -98,6 +110,11 @@ public class PirexView extends JFrame
         window = new PirexView();
         window.setTitle("Pirex");        
         window.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+	
     }
 }
 
