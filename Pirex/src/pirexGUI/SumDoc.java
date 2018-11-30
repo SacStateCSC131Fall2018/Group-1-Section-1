@@ -30,7 +30,6 @@ public class SumDoc extends JPanel {
 	messageArea.setEditable(false);
 	JScrollPane  scrollPane = new JScrollPane(messageArea);
 	scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-	scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 	add(scrollPane, BorderLayout.CENTER);
 	
     }

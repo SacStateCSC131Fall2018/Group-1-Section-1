@@ -15,7 +15,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-public class PirexView extends JFrame implements ActionListener
+public class Pirex extends JFrame implements ActionListener
 {
     /**
      * 
@@ -26,7 +26,7 @@ public class PirexView extends JFrame implements ActionListener
     /**
      * Default Constructor.
      */
-    public PirexView()
+    public Pirex()
     {
 	super(); 
 	setupLayout();
@@ -74,8 +74,8 @@ public class PirexView extends JFrame implements ActionListener
 	optionsMenu = new JMenu("Options");
 
 	menuBar.add(fileMenu);
-	menuBar.add(helpMenu);
 	menuBar.add(optionsMenu);
+	menuBar.add(helpMenu);
 	setJMenuBar(menuBar);
 
 	/** TABS **/
@@ -126,9 +126,9 @@ public class PirexView extends JFrame implements ActionListener
 	} catch (Exception e) {
 	    // If Nimbus is not available, you can set the GUI to another look and feel.
 	}
-	PirexView window;
+	Pirex window;
 
-	window = new PirexView();
+	window = new Pirex();
 	window.setTitle("Pirex");        
 	window.setVisible(true);
     }
