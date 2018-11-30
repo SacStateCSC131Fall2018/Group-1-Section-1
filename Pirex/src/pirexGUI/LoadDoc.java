@@ -3,6 +3,8 @@ package pirexGUI;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 public class LoadDoc extends JPanel implements ActionListener {
@@ -13,6 +15,7 @@ public class LoadDoc extends JPanel implements ActionListener {
 
     public LoadDoc() {
 	super();
+	setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         setupLayout();
     }
     

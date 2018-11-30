@@ -2,6 +2,7 @@ package pirexGUI;
 
 import java.awt.BorderLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -17,6 +18,7 @@ public class SumDoc extends JPanel {
     public SumDoc() {
 	super();
         setupLayout();
+        setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         indexTerms = 0;
         sumUpdate();
     }
