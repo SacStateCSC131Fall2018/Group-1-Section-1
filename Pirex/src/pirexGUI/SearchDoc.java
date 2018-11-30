@@ -14,7 +14,7 @@ public class SearchDoc extends JPanel implements ActionListener {
 
     public SearchDoc() {
 	super();
-        setupLayout();
+	setupLayout();
     }
 
     /**
@@ -27,9 +27,8 @@ public class SearchDoc extends JPanel implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent arg0) {
-	// TODO Auto-generated method stub
-	
+    public void actionPerformed(ActionEvent e) {
+
     }
 
 }

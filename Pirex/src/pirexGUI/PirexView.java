@@ -39,78 +39,78 @@ public class PirexView extends JFrame implements ActionListener
     private void setupLayout()
     {
          
-        // Layout 
+	// Layout 
 	JPanel search, load, summarize;
 	JTabbedPane tabbedPane;
 	JMenuBar menuBar;
 	JMenu fileMenu, helpMenu, optionsMenu;
 	JMenuItem item;
 
-        contentPane = getContentPane();
-        contentPane.setLayout(new BorderLayout());
-        
-        tabbedPane = new JTabbedPane();
-        contentPane.add(tabbedPane, BorderLayout.CENTER);
-        
-        setSize(900,700);
-        
-        //menu bar
-        menuBar = new JMenuBar();
-        
-        // file menu 
-        fileMenu = new JMenu("File");
-        //exit under file menu
-        item = new JMenuItem("Exit");
-        item.addActionListener(this);
-        fileMenu.add(item);
-        
-        //help menu
+	contentPane = getContentPane();
+	contentPane.setLayout(new BorderLayout());
+
+	tabbedPane = new JTabbedPane();
+	contentPane.add(tabbedPane, BorderLayout.CENTER);
+
+	setSize(900,700);
+
+	/** Menu Bar **/
+	menuBar = new JMenuBar();
+	// file menu 
+	fileMenu = new JMenu("File");
+	//exit under file menu
+	item = new JMenuItem("Exit");
+	item.addActionListener(this);
+	fileMenu.add(item);
+
+	//help menu
 	helpMenu = new JMenu("Help");
 	// about under help menu
 	item = new JMenuItem("About");
 	item.addActionListener(this);
 	helpMenu.add(item);
-	
+
 	// options menu
-        optionsMenu = new JMenu("Options");
-        
-        menuBar.add(fileMenu);
-        menuBar.add(helpMenu);
-        menuBar.add(optionsMenu);
-        setJMenuBar(menuBar);
-        
-        //search
-        search = new JPanel();
-        search.setLayout(new BorderLayout());
-        search.add(new SearchDoc(), BorderLayout.CENTER);
-        
-        // load
-        load = new JPanel();
-        load.setLayout(new BorderLayout());
-        load.add(new LoadDoc(), BorderLayout.CENTER);
-        
-        //summarize
-        summarize = new JPanel();
-        summarize.setLayout(new BorderLayout());
-        summarize.add(new SumDoc(), BorderLayout.CENTER);
-         
-        tabbedPane.addTab("Search for Documents", search);
-        tabbedPane.addTab("Load Documents",  load);
-        tabbedPane.addTab("Summarize Documents", summarize);
+	optionsMenu = new JMenu("Options");
+
+	menuBar.add(fileMenu);
+	menuBar.add(helpMenu);
+	menuBar.add(optionsMenu);
+	setJMenuBar(menuBar);
+
+	/** TABS **/
+	//search
+	search = new JPanel();
+	search.setLayout(new BorderLayout());
+	search.add(new SearchDoc(), BorderLayout.CENTER);
+
+	// load
+	load = new JPanel();
+	load.setLayout(new BorderLayout());
+	load.add(new LoadDoc(), BorderLayout.CENTER);
+
+	//summarize
+	summarize = new JPanel();
+	summarize.setLayout(new BorderLayout());
+	summarize.add(new SumDoc(), BorderLayout.CENTER);
+
+	tabbedPane.addTab("Search for Documents", search);
+	tabbedPane.addTab("Load Documents",  load);
+	tabbedPane.addTab("Summarize Documents", summarize);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 	String command;
 	command = e.getActionCommand();
-	
+
 	if(command.equals("Exit")) {
 	    dispose();
 	} 
 	else if (command.equals("About")) {
 	    JOptionPane.showMessageDialog(contentPane, "Pirex (personal information retrieval experimental system) is an information retrieval \n "
-	    	+ "system that individuals can use to investigate their own texts. ", "About",
-	    	JOptionPane.INFORMATION_MESSAGE);
+		    + "system that individuals can use to investigate their own texts. ", "About",
+		    JOptionPane.INFORMATION_MESSAGE);
 	}
     }
     
@@ -126,11 +126,11 @@ public class PirexView extends JFrame implements ActionListener
 	} catch (Exception e) {
 	    // If Nimbus is not available, you can set the GUI to another look and feel.
 	}
-       	PirexView window;
-        
-        window = new PirexView();
-        window.setTitle("Pirex");        
-        window.setVisible(true);
+	PirexView window;
+
+	window = new PirexView();
+	window.setTitle("Pirex");        
+	window.setVisible(true);
     }
 
 
