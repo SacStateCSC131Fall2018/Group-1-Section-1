@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
@@ -20,6 +21,7 @@ public class PirexView extends JFrame implements ActionListener
      * 
      */
     private static final long serialVersionUID = 1L;
+    private Container contentPane;
 
     /**
      * Default Constructor.
@@ -38,7 +40,6 @@ public class PirexView extends JFrame implements ActionListener
     {
          
         // Layout 
-	Container contentPane;
 	JPanel search, load, summarize;
 	JTabbedPane tabbedPane;
 	JMenuBar menuBar;
@@ -56,15 +57,21 @@ public class PirexView extends JFrame implements ActionListener
         //menu bar
         menuBar = new JMenuBar();
         
+        // file menu 
         fileMenu = new JMenu("File");
-	
-        //exit under file
+        //exit under file menu
         item = new JMenuItem("Exit");
-	item.addActionListener(this);
-	fileMenu.add(item);
-
-	helpMenu = new JMenu("Help");
+        item.addActionListener(this);
+        fileMenu.add(item);
         
+        //help menu
+	helpMenu = new JMenu("Help");
+	// about under help menu
+	item = new JMenuItem("About");
+	item.addActionListener(this);
+	helpMenu.add(item);
+	
+	// options menu
         optionsMenu = new JMenu("Options");
         
         menuBar.add(fileMenu);
@@ -91,7 +98,7 @@ public class PirexView extends JFrame implements ActionListener
         tabbedPane.addTab("Load Documents",  load);
         tabbedPane.addTab("Summarize Documents", summarize);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
 	String command;
@@ -99,6 +106,11 @@ public class PirexView extends JFrame implements ActionListener
 	
 	if(command.equals("Exit")) {
 	    dispose();
+	} 
+	else if (command.equals("About")) {
+	    JOptionPane.showMessageDialog(contentPane, "Pirex (personal information retrieval experimental system) is an information retrieval \n "
+	    	+ "system that individuals can use to investigate their own texts. ", "About",
+	    	JOptionPane.INFORMATION_MESSAGE);
 	}
     }
     
