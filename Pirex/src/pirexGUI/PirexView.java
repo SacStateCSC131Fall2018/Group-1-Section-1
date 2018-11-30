@@ -57,20 +57,19 @@ public class PirexView extends JFrame implements ActionListener
         menuBar = new JMenuBar();
         
         fileMenu = new JMenu("File");
-	item = new JMenuItem("Open");
-	fileMenu.add(item);
-	item = new JMenuItem("Exit");
+	
+        //exit under file
+        item = new JMenuItem("Exit");
 	item.addActionListener(this);
 	fileMenu.add(item);
 
-	
-        helpMenu = new JMenu("Help");
+	helpMenu = new JMenu("Help");
+        
         optionsMenu = new JMenu("Options");
         
         menuBar.add(fileMenu);
         menuBar.add(helpMenu);
         menuBar.add(optionsMenu);
-        
         setJMenuBar(menuBar);
         
         //search
@@ -93,6 +92,16 @@ public class PirexView extends JFrame implements ActionListener
         tabbedPane.addTab("Summarize Documents", summarize);
     }
     
+    @Override
+    public void actionPerformed(ActionEvent e) {
+	String command;
+	command = e.getActionCommand();
+	
+	if(command.equals("Exit")) {
+	    dispose();
+	}
+    }
+    
     public static void main(String[] args)
     {
 	try {
@@ -112,10 +121,7 @@ public class PirexView extends JFrame implements ActionListener
         window.setVisible(true);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-	
-    }
+
 }
 
 
