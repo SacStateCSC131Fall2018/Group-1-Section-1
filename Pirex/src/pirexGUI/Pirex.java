@@ -87,7 +87,7 @@ public class Pirex extends JFrame implements ActionListener
 	// load
 	load = new JPanel();
 	load.setLayout(new BorderLayout());
-	load.add(new LoadDoc(), BorderLayout.CENTER);
+	load.add(new LoadDoc(contentPane), BorderLayout.CENTER);
 
 	//summarize
 	summarize = new JPanel();

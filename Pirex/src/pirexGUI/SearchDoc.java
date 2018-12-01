@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class SearchDoc extends JPanel implements ActionListener {
     /**
@@ -35,20 +36,22 @@ public class SearchDoc extends JPanel implements ActionListener {
 	JPanel top, bottom, query; 
 	JScrollPane  scrollPane;
 	JTextArea textArea;
+	JTextField textField;
 
 	
 	setLayout(new GridLayout(2, 1,0,10));
 	
 	top = new JPanel(new BorderLayout());
 	query = new JPanel(new BorderLayout());
+	bottom = new JPanel(new BorderLayout());
 	
 	//query
 	titleLabel = new JLabel("Query: ");
 	Font font = new Font("SansSerif", Font.BOLD,12);
 	titleLabel.setFont(font);
 	query.add(titleLabel, BorderLayout.WEST);
-	textArea = new JTextArea(1,10);
-	query.add(textArea, BorderLayout.CENTER);
+	textField = new JTextField(1);
+	query.add(textField, BorderLayout.CENTER);
 	clearButton = new JButton("Clear");
 	clearButton.addActionListener(this);
 	query.add(clearButton, BorderLayout.EAST);
@@ -63,7 +66,7 @@ public class SearchDoc extends JPanel implements ActionListener {
 	top.add(textArea, BorderLayout.CENTER);
 
 	//contents	
-	bottom = new JPanel(new BorderLayout());
+	
 	titleLabel = new JLabel(" ");
 	textArea = new JTextArea();
 	textArea.setEditable(false);
