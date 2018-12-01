@@ -16,8 +16,10 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class LoadDoc extends JPanel implements ActionListener,ItemListener {
     /**
@@ -41,7 +43,7 @@ public class LoadDoc extends JPanel implements ActionListener,ItemListener {
 	JButton browseButton, processButton;
 	JComboBox<String> comboBox;
 	JLabel titleLabel;
-	JPanel textFile, textType, title, author, titleAuthor, button, top, bottom; 
+	JPanel textFile, textType, title, author, titleAuthor, button, top, bottom, line; 
 	JScrollPane  scrollPane;
 	JTextArea textArea;
 	JTextField textField,hiddenText;
@@ -59,7 +61,7 @@ public class LoadDoc extends JPanel implements ActionListener,ItemListener {
 	button = new JPanel(new BorderLayout());
 	top = new JPanel(new BorderLayout());
 	bottom = new JPanel(new BorderLayout());
-	
+	line = new JPanel(new BorderLayout());
 	//Text File
 	titleLabel = new JLabel("Text File: ");
 
@@ -105,8 +107,12 @@ public class LoadDoc extends JPanel implements ActionListener,ItemListener {
 	
 	titleAuthor.add(title);
 	titleAuthor.add(author);
-	titleAuthor.setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
-	top.add(titleAuthor, BorderLayout.SOUTH);
+	titleAuthor.setBorder(BorderFactory.createEmptyBorder(5, 0, 10, 0));
+	
+	line.add(titleAuthor, BorderLayout.CENTER);
+	line.add(new JSeparator(SwingConstants.HORIZONTAL), BorderLayout.SOUTH);
+	line.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
+	top.add(line, BorderLayout.SOUTH);
 	
 	//Process Button
 	processButton = new JButton("Process");
