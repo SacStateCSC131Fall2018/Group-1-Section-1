@@ -16,7 +16,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -46,8 +45,10 @@ public class LoadDoc extends JPanel implements ActionListener,ItemListener {
 	JScrollPane  scrollPane;
 	JTextArea textArea;
 	JTextField textField,hiddenText;
+	String[] data;
+	
 	Font font = new Font("SansSerif", Font.BOLD,12);
-	String[] data = new String[2];
+	
 	setLayout(new BorderLayout()); 
 	
 	textFile = new JPanel(new BorderLayout());
@@ -76,9 +77,10 @@ public class LoadDoc extends JPanel implements ActionListener,ItemListener {
 	//Text Type 
 	titleLabel = new JLabel("Text File Type: ");
 	titleLabel.setFont(font);
+	data = new String[3];
 	data[0] = "Project Gutenberg File";
-	data[1] = "File";
-
+	data[1] = "HTML Document";
+	data[2] = "Rich Text Format (rtf) Document";
 	comboBox = new JComboBox<String>(data);
 	comboBox.addItemListener(this);
 	comboBox.setEditable(true);
@@ -106,8 +108,6 @@ public class LoadDoc extends JPanel implements ActionListener,ItemListener {
 	titleAuthor.setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
 	top.add(titleAuthor, BorderLayout.SOUTH);
 	
-	add(new JSeparator(JSeparator.HORIZONTAL),
-	          BorderLayout.LINE_START);
 	//Process Button
 	processButton = new JButton("Process");
 	processButton.addActionListener(this);

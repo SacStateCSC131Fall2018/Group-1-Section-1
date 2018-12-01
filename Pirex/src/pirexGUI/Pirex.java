@@ -2,9 +2,14 @@ package pirexGUI;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -22,7 +27,7 @@ public class Pirex extends JFrame implements ActionListener
      */
     private static final long serialVersionUID = 1L;
     private Container contentPane;
-
+    
     /**
      * Default Constructor.
      */
@@ -45,17 +50,29 @@ public class Pirex extends JFrame implements ActionListener
 	JMenuBar menuBar;
 	JMenu fileMenu, helpMenu, optionsMenu;
 	JMenuItem item;
+	
+	List<Image> images = new ArrayList<Image>(4);
+	try {
+	    images.add(ImageIO.read(getClass().getResource("icons/pirexIcon16.png")));
+	    images.add(ImageIO.read(getClass().getResource("icons/pirexIcon24.png")));
+	    images.add(ImageIO.read(getClass().getResource("icons/pirexIcon32.png")));
+	    images.add(ImageIO.read(getClass().getResource("icons/pirexIcon48.png")));
+	    setIconImages(images);
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
 
+	
 	contentPane = getContentPane();
 	contentPane.setLayout(new BorderLayout());
 
 	tabbedPane = new JTabbedPane();
 	contentPane.add(tabbedPane, BorderLayout.CENTER);
-
 	setSize(900,700);
 
 	/** Menu Bar **/
 	menuBar = new JMenuBar();
+	
 	// file menu 
 	fileMenu = new JMenu("File");
 	//exit under file menu
@@ -126,9 +143,7 @@ public class Pirex extends JFrame implements ActionListener
 	} catch (Exception e) {
 	    // If Nimbus is not available, you can set the GUI to another look and feel.
 	}
-	Pirex window;
-
-	window = new Pirex();
+	Pirex window = new Pirex(); 
 	window.setTitle("Pirex");        
 	window.setVisible(true);
     }
