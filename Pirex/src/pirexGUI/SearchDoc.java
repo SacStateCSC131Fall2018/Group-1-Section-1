@@ -32,17 +32,18 @@ public class SearchDoc extends JPanel implements ActionListener {
     private void setupLayout()
     {
 	JButton clearButton;
-	JLabel titleLabel;
-	JPanel top, bottom, query; 
+	JLabel titleLabel,retrievedText;
+	JPanel top, bottom, query, retrieved; 
 	JScrollPane  scrollPane;
 	JTextArea textArea;
-	JTextField textField;
+	JTextField textField,hiddenText;
 
 	
 	setLayout(new GridLayout(2, 1,0,10));
 	
 	top = new JPanel(new BorderLayout());
 	query = new JPanel(new BorderLayout());
+	retrieved = new JPanel(new BorderLayout());
 	bottom = new JPanel(new BorderLayout());
 	
 	//query
@@ -55,7 +56,7 @@ public class SearchDoc extends JPanel implements ActionListener {
 	clearButton = new JButton("Clear");
 	clearButton.addActionListener(this);
 	query.add(clearButton, BorderLayout.EAST);
-	
+	query.setBorder(BorderFactory.createEmptyBorder(5,0,5,0));
 	top.add(query, BorderLayout.NORTH);
 	
 	// results
@@ -64,14 +65,23 @@ public class SearchDoc extends JPanel implements ActionListener {
 	scrollPane = new JScrollPane(textArea);
 	scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 	top.add(textArea, BorderLayout.CENTER);
+	
+	//retrieved text
+	retrievedText = new JLabel(" ");
+	retrievedText.setVisible(true);
+	hiddenText = new JTextField(1);
+	hiddenText.setVisible(false);
+	retrieved.add(retrievedText, BorderLayout.WEST);
+	retrieved.add(hiddenText, BorderLayout.CENTER);
+	retrieved.setBorder(BorderFactory.createEmptyBorder(5,0,10,0));
 
 	//contents	
-	
-	titleLabel = new JLabel(" ");
 	textArea = new JTextArea();
 	textArea.setEditable(false);
 	scrollPane = new JScrollPane(textArea);
 	scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+	
+	bottom.add(retrieved, BorderLayout.NORTH);
 	bottom.add(scrollPane, BorderLayout.CENTER);
 	
 	

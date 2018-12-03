@@ -27,7 +27,7 @@ public class LoadDoc extends JPanel implements ActionListener,ItemListener {
      */
     private static final long serialVersionUID = 1L;
     private Container contentPane;
-    private JTextField textFileField;
+    private JTextField textFileField, authorField, titleField;
     
     public LoadDoc(Container contentPane) {
 	super();
@@ -46,7 +46,7 @@ public class LoadDoc extends JPanel implements ActionListener,ItemListener {
 	JPanel textFile, textType, title, author, titleAuthor, button, top, bottom, line; 
 	JScrollPane  scrollPane;
 	JTextArea textArea;
-	JTextField textField,hiddenText;
+	JTextField hiddenText;
 	String[] data;
 	
 	Font font = new Font("SansSerif", Font.BOLD,12);
@@ -95,15 +95,15 @@ public class LoadDoc extends JPanel implements ActionListener,ItemListener {
 	//Title Author
 	titleLabel = new JLabel("Title: ");
 	titleLabel.setFont(font);
-	textField = new JTextField(1);
+	titleField = new JTextField(1);
 	title.add(titleLabel, BorderLayout.WEST);
-	title.add(textField, BorderLayout.CENTER);
+	title.add(titleField, BorderLayout.CENTER);
 	
 	titleLabel = new JLabel("Author: ");
 	titleLabel.setFont(font);
-	textField = new JTextField(1);
+	authorField = new JTextField(1);
 	author.add(titleLabel, BorderLayout.WEST);
-	author.add(textField, BorderLayout.CENTER);
+	author.add(authorField, BorderLayout.CENTER);
 	
 	titleAuthor.add(title);
 	titleAuthor.add(author);
