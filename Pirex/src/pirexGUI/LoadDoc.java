@@ -85,7 +85,7 @@ public class LoadDoc extends JPanel implements ActionListener,ItemListener {
 	data[2] = "Rich Text Format (rtf) Document";
 	comboBox = new JComboBox<String>(data);
 	comboBox.addItemListener(this);
-	comboBox.setEditable(true);
+	comboBox.setEditable(false);
 	
 	textType.add(titleLabel, BorderLayout.WEST);
 	textType.add(comboBox, BorderLayout.CENTER);
