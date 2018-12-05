@@ -122,7 +122,7 @@ public class Pirex extends JFrame implements ActionListener
 	command = e.getActionCommand();
 
 	if(command.equals("Exit")) {
-	    dispose();
+	    System.exit(0);
 	} 
 	else if (command.equals("About")) {
 	    JOptionPane.showMessageDialog(contentPane, "Pirex (personal information retrieval experimental system) is an information retrieval \n "
