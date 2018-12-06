@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -75,20 +76,40 @@ public class Pirex extends JFrame implements ActionListener
 	
 	// file menu 
 	fileMenu = new JMenu("File");
-	//exit under file menu
+	
+	item = new JMenuItem("Load Query");
+	item.addActionListener(this);
+	fileMenu.add(item);
+	item = new JMenuItem("Save Query");
+	item.addActionListener(this);
+	fileMenu.add(item);
+	item = new JMenuItem("Export");
+	item.addActionListener(this);
+	fileMenu.add(item);
 	item = new JMenuItem("Exit");
 	item.addActionListener(this);
 	fileMenu.add(item);
 
 	//help menu
 	helpMenu = new JMenu("Help");
-	// about under help menu
+
 	item = new JMenuItem("About");
+	item.addActionListener(this);
+	helpMenu.add(item);
+	item = new JMenuItem("Index");
 	item.addActionListener(this);
 	helpMenu.add(item);
 
 	// options menu
 	optionsMenu = new JMenu("Options");
+	
+	item = new JMenuItem("Sources");
+	item.addActionListener(this);
+	optionsMenu.add(item);
+	item = new JMenuItem("Documents");
+	item.addActionListener(this);
+	optionsMenu.add(item);
+	
 
 	menuBar.add(fileMenu);
 	menuBar.add(optionsMenu);
@@ -121,14 +142,44 @@ public class Pirex extends JFrame implements ActionListener
 	String command;
 	command = e.getActionCommand();
 
-	if(command.equals("Exit")) {
-	    System.exit(0);
-	} 
+	if (command.equals("Load Query")) { 
+		String response = JOptionPane.showInputDialog("Load a query from a previous session");
+		SearchDoc.setQuery(response);
+	}
+	else if (command.equals("Save Query")) {
+		System.out.println("Saving query: " + SearchDoc.getQuery());
+	}
+	else if (command.equals("Export")) {
+		System.out.println("Exporting search results");
+	}
+	else if (command.equals("Documents")) {
+	    int retval;
+	    JFileChooser jfc;
+	    jfc = new JFileChooser();
+	    retval = jfc.showOpenDialog(contentPane);
+	    if (retval == JFileChooser.APPROVE_OPTION)
+	    	System.out.println("Set path to Document store");
+	}
+	else if (command.equals("Sources")) {
+	    int retval;
+	    JFileChooser jfc;
+	    jfc = new JFileChooser();
+	    retval = jfc.showOpenDialog(contentPane);
+	    if (retval == JFileChooser.APPROVE_OPTION)
+	    	System.out.println("Set path to the Source store");
+	}
+	else if (command.equals("Index")) {
+	    JOptionPane.showMessageDialog(contentPane, "Help on the various system features", "Index",
+		    JOptionPane.INFORMATION_MESSAGE);
+	}
 	else if (command.equals("About")) {
 	    JOptionPane.showMessageDialog(contentPane, "Pirex (personal information retrieval experimental system) is an information retrieval \n "
 		    + "system that individuals can use to investigate their own texts. ", "About",
 		    JOptionPane.INFORMATION_MESSAGE);
 	}
+	else if(command.equals("Exit")) {
+	    System.exit(0);
+	} 
     }
     
     public static void main(String[] args)

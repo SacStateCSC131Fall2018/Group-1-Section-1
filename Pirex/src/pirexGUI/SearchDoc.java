@@ -26,6 +26,7 @@ public class SearchDoc extends JPanel implements ActionListener, ListSelectionLi
     private static final long serialVersionUID = 1L;
     private JList<Object> list;
     private Vector<String> data;
+    private static JTextField textField;
 
     public SearchDoc() {
 	super();
@@ -43,7 +44,7 @@ public class SearchDoc extends JPanel implements ActionListener, ListSelectionLi
 	JPanel top, bottom, query, retrieved; 
 	JScrollPane  scrollPane,listScrollPane;
 	JTextArea textArea;
-	JTextField textField,hiddenText;
+	JTextField hiddenText;
 	
 	setLayout(new GridLayout(2, 1,0,10));
 	
@@ -98,6 +99,16 @@ public class SearchDoc extends JPanel implements ActionListener, ListSelectionLi
 	
 	add(top);
 	add(bottom);
+    }
+    
+    public static void setQuery(String load) {
+    	textField.setText(load);
+    	
+    }
+    
+    public static String getQuery() {
+    	return textField.getText();
+    	
     }
 
     @Override
