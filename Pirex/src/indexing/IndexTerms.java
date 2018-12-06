@@ -1,7 +1,6 @@
 package indexing;
 import java.util.ArrayList;
 
-//import Stemmer;
 
 public class IndexTerms {
 
@@ -23,13 +22,13 @@ public class IndexTerms {
 		}
 
 		//using "Porter Stemming" algorithm
-	/*	Stemmer stem = new Stemmer();
+		Stemmer stem = new Stemmer();
 		for(int i = 0; i < filteredText.length; i++) {
 			stem.add(filteredText[i].toCharArray(), filteredText[i].length());
 			stem.stem();
 			filteredText[i] = stem.toString();
 		stem = new Stemmer();
-		}*/
+		}
 		return filteredText;
 	}
 
